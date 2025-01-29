@@ -60,54 +60,64 @@
 
 // export default Webheader;
 
-import { Layout, Menu } from 'antd';
-import { HomeOutlined, UserOutlined, LoginOutlined, UserAddOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
 
-const { Header, Content } = Layout;
+import free from '../images/freelance.png'
+import './webheader.css'
 
-function Webheader() {
-  return (
-    <Layout>
-      <Header className="bg-secondary">
-      
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-          <span className='titlestyle' style={{fontSize:'35px'}}>Freelancer-Project-Completer</span>{"     "}
-          <Menu.Item key="1" icon={<UserOutlined />} style={{ fontSize: '20px' }}>
-            About
-          </Menu.Item>
-          <Menu.Item key="2" icon={<HomeOutlined />} style={{ fontSize: '20px' }}>
-            Home
-          </Menu.Item>
-          <Menu.SubMenu key="3" icon={<UserAddOutlined />} title="Registration" style={{ fontSize: '20px' }}>
-            <Menu.Item key="clientreg" href='/cleintreg'>
-              <a href="/clientreg">Client Registration</a>
-              </Menu.Item>
-            <Menu.Item key="userreg" >
-            <a href="/userreg">Developer Registration</a>
-            </Menu.Item>
-          </Menu.SubMenu>
-          <Menu.SubMenu key="4" icon={<LoginOutlined />} title="Login" style={{ fontSize: '20px' }}>
-            
-            <Menu.Item key="clientlogin">
-              <Link to="/clientlogin">
-              Client Login
-              </Link>
-          
-              
-              </Menu.Item>
-            <Menu.Item key="login">
-              <Link to="/login">
-              Developer Login
-                </Link>
-                
-                </Menu.Item>
-          </Menu.SubMenu>
-        </Menu>
-      </Header>
-      {/* Content */}
-    </Layout>
-  );
+export default function Webheader() {
+const[dropmenu,setMenu]=useState("dropm")
+const [toggle,setToggle]=useState(false)
+function dropdown(){
+   if(!toggle){
+    setMenu("dropmove")
+    setToggle(true)
+   }
+   else{
+    setMenu("dropm")
+    setToggle(false)
+   }
+  
 }
-
-export default Webheader;
+  return (
+    <>
+     <div className="header">
+      <div className="logo">
+      <img src={free} alt="" srcset="" />
+      <h3>FreeLancer</h3>
+      </div>
+      <div className="naves">
+        <p>
+          <a href=""><i class="fa-solid fa-house"></i>Home</a>
+        </p>
+        <p>
+          <a href=""><i class="fa-solid fa-gear"></i>Aboutus</a>
+        </p>
+        <p>
+          <a href=""><i class="fa-duotone fa-solid fa-id-badge"></i>Contactus</a>
+        </p>
+      </div>
+      <div className="social">
+           <p><a href=""><i class="fa-brands fa-facebook"></i></a></p>
+           <p><a href=""><i class="fa-brands fa-linkedin"></i></a></p>
+      
+           <p><a href=""></a></p>
+      </div>
+      <div className="burger">
+      <i class="fa-solid fa-list" onClick={dropdown}></i>
+      </div>
+     </div>
+     <div className={dropmenu}>
+     <p>
+          <a href=""><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+        </p>
+        <p>
+          <a href=""><i class="fa-solid fa-gear"></i>&nbsp;Aboutus</a>
+        </p>
+        <p>
+          <a href=""><i class="fa-duotone fa-solid fa-id-badge"></i>&nbsp;Contactus</a>
+        </p>
+     </div>
+    </>
+  )
+}

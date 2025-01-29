@@ -57,6 +57,7 @@ import ViewAgree from './viewagree';
 import Adminviewdev from './adminviewdev';
 import Adminviewcli from './adminviewclien';
 import Viewproject from './adminviewproject';
+import Categoryreg from './categoryreg';
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -101,7 +102,7 @@ function Adminhome() {
           <Route path="/adminviewdev" element={<Adminviewdev/>}></Route>
           <Route path="/adminviewclien" element={<Adminviewcli/>}></Route>
           <Route path="/adminviewproject" element={<Viewproject/>}></Route>   
-          <Route path="/categoryadd" element={<Viewproject/>}></Route> 
+          <Route path="/categoryadd" element={<Categoryreg/>}></Route> 
           </Routes>
           <ViewAgree />
         </Content>

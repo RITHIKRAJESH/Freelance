@@ -40,7 +40,7 @@ export default function ViewAgree() {
             </thead>
             <tbody>
               {record
-              .filter((ls)=>{return ls.status=="verified"})
+              .filter((ls)=>{return ls.status!=="notaccepted"})
               .map((ls) => (
                 <tr key={ls._id}>
                   <td>{ls.cname}</td>
@@ -49,6 +49,7 @@ export default function ViewAgree() {
                   <td>
                     <form onSubmit={(e) => { handlersubmit(e, ls._id) }}>
                       <select name="status" onChange={(e) => setStatus(e.target.value)}>
+                        <option>Select update</option>
                         <option value="accept">Accept</option>
                         <option value="processing">Processing</option>
                         <option value="completed">Completed</option>

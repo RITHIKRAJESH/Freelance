@@ -1,21 +1,101 @@
-.mb
-{
-    color:brown;
-}
-.header-image {
-    background-image: url('pexels-photo-461064.jpeg');
-    background-size: cover; 
-    background-position:center;
-    width: 100%;
-    height: 800px; 
-    
-}
-.im {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space items evenly */
-    margin-top: 20px; /* Add margin between heading and images */
-    padding-left: 10px;
-
-}
-
+.header{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-template-rows:100px;
+    overflow: hidden;
   
+  }
+  .logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+  }
+  .logoi{
+    font-family: Cambria, serif;
+    font-size:30px;
+    color:rgb(8, 91, 200);
+  }
+  .naves{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .naves p a{
+    text-decoration: none;
+    color:rgb(14, 107, 206);
+  }
+  .social{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .social p a{
+    text-decoration: none;
+    font-size:25px;
+    color:rgb(38, 89, 231);
+  }
+  .burger{
+    color:blue;
+    display:none;
+  }
+  .dropm{
+    display:none;
+  }
+  .dropmove{
+    display: none;
+  }
+  .dropmove p a{
+    text-decoration: none;
+    font-size:15px;
+    color:rgb(38, 89, 231);
+    font-family: Arial;
+  }
+  @keyframes dropanima {
+    0% {
+      left: 0px;
+    
+    }
+    100% {
+      left: 250px;
+   
+    }
+  }
+  @media(max-width:600px){
+    .dropmove {
+      
+      width: 60%;
+      padding: 10px;
+      display: flex;
+      
+      flex-direction: column;
+      gap: 10px;
+      
+      background-color: #413c3e;
+      position: relative; /* Added position for animating right */
+      animation: dropanima 1s 1 cubic-bezier(0.075, 0.82, 0.165, 1);
+     
+    }
+    .header{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows:1fr;
+      padding:10px;
+      gap:10px 10px;
+    
+    }
+    .burger{
+      display:flex;
+      justify-content:right;
+      align-items: center;
+      font-size:34px;
+    }
+    .burger:hover i{
+      color:green;
+    }
+    .naves{display:none;}
+    .social{display:none;}
+  }
